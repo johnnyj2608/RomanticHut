@@ -356,8 +356,8 @@
   }
   
   /* Services Section */
-  .services {
-    background: #131313;
+  .services_w {
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -365,7 +365,7 @@
     height: 100vh;
   }
   
-  .services h1 {
+  .services_w h1 {
     background-color: #ff8177;
     background-image: linear-gradient(
       to right,
@@ -456,22 +456,22 @@
   }
   
   @media screen and (max-width: 960px) {
-    .services {
+    .services_w {
       height: 1600px;
     }
   
-    .services h1 {
+    .services_w h1 {
       font-size: 2rem;
       margin-top: 12rem;
     }
   }
   
   @media screen and (max-width: 480px) {
-    .services {
+    .services_w {
       height: 1400px;
     }
   
-    .services h1 {
+    .services_w h1 {
       font-size: 1.2rem;
     }
   
