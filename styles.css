@@ -310,6 +310,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px;
   }
   
   .services__container {
@@ -329,6 +330,10 @@
     text-align: left;
   }
 
+  .services__card h1 {
+    padding-bottom: 10px;
+  }
+
   .prices__card {
     margin: 1rem;
     height: fit-content;
@@ -337,6 +342,10 @@
     background-size: cover;
     position: relative;
     text-align: center;
+  }
+
+  .prices {
+    padding: 10px 0px;
   }
 
   /*
