@@ -1,0 +1,68 @@
+function sendEmail(e) {
+  var sheet = e.source.getActiveSheet();
+  if (sheet.getName() === 'Avail') {
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Hidden");
+
+    var name = ss.getRange("E2").getValue();
+    var date = ss.getRange("F2").getValue();
+    var room = ss.getRange("G2").getValue();
+    var status = ss.getRange("B2").getValue();
+
+    var formattedDate = Utilities.formatDate(date, "GMT+0", 'EEEE MMMM d yyyy');
+
+    var emailAddress = ss.getRange("H2").getValue();
+    var subject = 'Romantic Hut Party Hall';
+
+    var message = 'Hello '+name+',\n\nYour requested date of '+formattedDate+' for the '+room+' Hall is '+status+'.\n\nSincerely,\nRomantic Hut Party Hall';
+
+    MailApp.sendEmail(emailAddress, subject, message);
+  }
+}
+
+function sendSms(to, body) {
+  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
+
+  var payload = {
+    "To": to,
+    "Body" : body,
+    "From" : "TWILIO"
+  };
+
+  var options = {
+    "method" : "post",
+    "payload" : payload
+  };
+
+  options.headers = { 
+    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
+  };
+
+  UrlFetchApp.fetch(messages_url, options);
+}
+
+
+function sendText(e) {
+
+  var sheet = e.source.getActiveSheet();
+  if (sheet.getName() === 'Visit') {
+
+    var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Hidden");
+    var name = ss.getRange("L2").getValue();
+    var date = ss.getRange("M2").getValue();
+    var time = ss.getRange("N2").getValue();
+    var number = ss.getRange("O2").getValue();
+    var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
+    var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
+    var newTime = Utilities.formatDate(time, "GMT+19", 'h:mm a');
+
+    var message = '-\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nTime: '+newTime+'\nNumber: '+number;
+    console.log(message);
+
+    try {
+      response_data = sendSms("3474970849", message);
+    } catch(err) {
+        Logger.log(err);
+    }
+  } 
+}
