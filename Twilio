@@ -1,10 +1,10 @@
 function sendSms(to, body) {
-  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/AC40c3e3ec23b0ee9b50f8aa5857a7b924/Messages.json";
+  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
 
   var payload = {
     "To": to,
     "Body" : body,
-    "From" : "18889023972"
+    "From" : "TWILIO"
   };
 
   var options = {
@@ -13,7 +13,7 @@ function sendSms(to, body) {
   };
 
   options.headers = { 
-    "Authorization" : "Basic " + Utilities.base64Encode("AC40c3e3ec23b0ee9b50f8aa5857a7b924:ada4d4192355872288cd042b54293116")
+    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
   };
 
   UrlFetchApp.fetch(messages_url, options);
