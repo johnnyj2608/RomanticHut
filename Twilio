@@ -1,10 +1,10 @@
 function sendSms(to, body) {
-  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
+  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/AC40c3e3ec23b0ee9b50f8aa5857a7b924/Messages.json";
 
   var payload = {
     "To": to,
     "Body" : body,
-    "From" : "TWILIO"
+    "From" : "18889023972"
   };
 
   var options = {
@@ -13,7 +13,7 @@ function sendSms(to, body) {
   };
 
   options.headers = { 
-    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
+    "Authorization" : "Basic " + Utilities.base64Encode("AC40c3e3ec23b0ee9b50f8aa5857a7b924:ada4d4192355872288cd042b54293116")
   };
 
   UrlFetchApp.fetch(messages_url, options);
@@ -22,8 +22,7 @@ function sendSms(to, body) {
 function avail(e) {
 
   // Ensure it's the correct form being requested
-  var sheet = e.source.getActiveSheet();
-  if (sheet.getName() === 'Avail') {    
+  if (e.source.getActiveSheet().getName() === 'Avail') {    
     var timestamp = 1;
     var name = 2;
     var date = 3;
@@ -37,12 +36,12 @@ function avail(e) {
     var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
     var date = ss.getRange(last, date).getValue();
     var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
+    var number = ss.getRange(last, number).getValue();
     
   // Create variables of proposed details
     if (new Date(newDate) >= new Date(today)) {
       var name = ss.getRange(last, name).getValue();
       var room = ss.getRange(last, room).getValue();
-      var number = ss.getRange(last, number).getValue();
       var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
       var status = '';
   
@@ -72,7 +71,7 @@ function avail(e) {
       message += '\nError: Date has passed';
     }
     try {
-      //response_data = sendSms(number, message);
+      response_data = sendSms('1'+number, message);
     } catch(err) {
       Logger.log(err);
     }
@@ -82,8 +81,7 @@ function avail(e) {
 function visit(e) {
 
   // Ensure it's the correct form being requested
-  var sheet = e.source.getActiveSheet();
-  if (sheet.getName() === 'Visit') {
+  if (e.source.getActiveSheet().getName() === 'Visit') {
     var timestamp = 1;
     var name = 2;
     var date = 3;
@@ -91,6 +89,7 @@ function visit(e) {
     var number = 5;
     var startTime = 480;  // 8 AM
     var endTime = 900;   // 3 PM
+    var sunday = 0;
     var message = '-\nRomantic Hut Party Hall';
 
     // Variables to check if proposed date and time is possible
@@ -101,11 +100,15 @@ function visit(e) {
     var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
     var time = ss.getRange(last, time).getValue();
     var cur_time = (new Date(time).getHours())*60+(new Date(time).getMinutes());
+    var number = ss.getRange(last, number).getValue();
+
+    if (new Date(newDate).getDay() > sunday) {
+      console.log(new Date(newDate).getDay()+1);
+    }
 
     // Create variables of proposed details
-    if (new Date(newDate) >= new Date(today) && cur_time >= startTime && cur_time <= endTime) {
+    if (new Date(newDate) >= new Date(today) && cur_time >= startTime && cur_time <= endTime && new Date(newDate).getDay() > sunday) {
       var name = ss.getRange(last, name).getValue();
-      var number = ss.getRange(last, number).getValue();
       var newTime = Utilities.formatDate(time, "GMT+19", 'h:mm a');
       var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
 
@@ -114,14 +117,14 @@ function visit(e) {
     if (new Date(newDate) < new Date(today)) {
       message += '\nError: Date has passed';
     }
-    if (cur_time < startTime || cur_time > endTime) {
+    if (cur_time < startTime || cur_time > endTime || new Date(newDate).getDay() <= sunday) {
       message += '\nError: Outside of business hours';
     }
     try {
       if(!message.includes("Error")) {
-        response_data = sendSms("3474970849", message);
+        response_data = sendSms("13474970849", message);
       }
-      response_data = sendSms(number, message);
+      response_data = sendSms('1'+number, message);
     } catch(err) {
       Logger.log(err);
     }
