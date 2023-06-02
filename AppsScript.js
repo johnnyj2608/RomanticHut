@@ -91,7 +91,7 @@ function visit(e) {
 
   // Ensure it's the correct form being requested
   if (e.source.getActiveSheet().getName() != 'Visit') {
-    return
+    return;
   }
   var timestamp = 1;
   var name = 2;
@@ -134,7 +134,7 @@ function visit(e) {
   }
   try {
     if(!message.includes("Error")) {
-      response_data = sendSms("13474970849", message);
+      response_data = sendSms("3474970849", message);
     }
     response_data = sendSms('1'+number, message);
     if (limiter() === 10) {
