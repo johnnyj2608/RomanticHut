@@ -1,32 +1,10 @@
-function sendEmail(e) {
-  var sheet = e.source.getActiveSheet();
-  if (sheet.getName() === 'Avail') {
-
-  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Hidden");
-
-    var name = ss.getRange("E2").getValue();
-    var date = ss.getRange("F2").getValue();
-    var room = ss.getRange("G2").getValue();
-    var status = ss.getRange("B2").getValue();
-
-    var formattedDate = Utilities.formatDate(date, "GMT+0", 'EEEE MMMM d yyyy');
-
-    var emailAddress = ss.getRange("H2").getValue();
-    var subject = 'Romantic Hut Party Hall';
-
-    var message = 'Hello '+name+',\n\nYour requested date of '+formattedDate+' for the '+room+' Hall is '+status+'.\n\nSincerely,\nRomantic Hut Party Hall';
-
-    MailApp.sendEmail(emailAddress, subject, message);
-  }
-}
-
 function sendSms(to, body) {
-  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
+  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/AC40c3e3ec23b0ee9b50f8aa5857a7b924/Messages.json";
 
   var payload = {
     "To": to,
     "Body" : body,
-    "From" : "TWILIO"
+    "From" : "18889023972"
   };
 
   var options = {
@@ -35,34 +13,117 @@ function sendSms(to, body) {
   };
 
   options.headers = { 
-    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
+    "Authorization" : "Basic " + Utilities.base64Encode("AC40c3e3ec23b0ee9b50f8aa5857a7b924:5e3baae4d9e152575a5a7c1404fbf20b")
   };
 
   UrlFetchApp.fetch(messages_url, options);
 }
 
+function avail(e) {
 
-function sendText(e) {
+  // Ensure it's the correct form being requested
+  var sheet = e.source.getActiveSheet();
+  if (sheet.getName() === 'Avail') {    
+    var timestamp = 1;
+    var name = 2;
+    var date = 3;
+    var room = 4;
+    var number = 5;
+    var message = '-\nRomantic Hut Party Hall';
 
+  // Variables to check if proposed date is possible
+    var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
+    var last = ss.getRange("A1:A").getValues().filter(String).length;
+    var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
+    var date = ss.getRange(last, date).getValue();
+    var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
+    
+  // Create variables of proposed details
+    if (new Date(newDate) >= new Date(today)) {
+      var name = ss.getRange(last, name).getValue();
+      var room = ss.getRange(last, room).getValue();
+      var number = ss.getRange(last, number).getValue();
+      var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
+      var status = '';
+  
+  // Create list of reserved dates
+      var public = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Public");
+      var startRow = 3;
+      var numRows = public.getRange("A1:A").getValues().filter(String).length;
+      var dataRange = public.getRange(startRow, 1, numRows, 2) 
+      var data = dataRange.getValues();
+
+  // If date and room pair matches, FULL. If proposed date passed, OPEN
+      for (i in data) {
+        var row = data[i];
+        var curDate = Utilities.formatDate(row[0], "GMT+19", 'MMMM d, yyyy');
+        var curRoom = row[1];
+        if (newDate === curDate && room == curRoom) {
+          status = 'FULL';
+          break;
+        } 
+        if (new Date(newDate) < new Date(curDate)) {
+          status = 'OPEN';
+          break;
+        }
+      }
+      message += '\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nRoom: '+room+'\nStatus: '+status;
+    } else {
+      message += '\nError: Date has passed';
+    }
+    try {
+      //response_data = sendSms(number, message);
+    } catch(err) {
+      Logger.log(err);
+    }
+  }
+}
+
+function visit(e) {
+
+  // Ensure it's the correct form being requested
   var sheet = e.source.getActiveSheet();
   if (sheet.getName() === 'Visit') {
+    var timestamp = 1;
+    var name = 2;
+    var date = 3;
+    var time = 4;
+    var number = 5;
+    var startTime = 480;  // 8 AM
+    var endTime = 900;   // 3 PM
+    var message = '-\nRomantic Hut Party Hall';
 
-    var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Hidden");
-    var name = ss.getRange("L2").getValue();
-    var date = ss.getRange("M2").getValue();
-    var time = ss.getRange("N2").getValue();
-    var number = ss.getRange("O2").getValue();
-    var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
+    // Variables to check if proposed date and time is possible
+    var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Visit");
+    var last = ss.getRange("A1:A").getValues().filter(String).length;
+    var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
+    var date = ss.getRange(last, date).getValue();
     var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
-    var newTime = Utilities.formatDate(time, "GMT+19", 'h:mm a');
+    var time = ss.getRange(last, time).getValue();
+    var cur_time = (new Date(time).getHours())*60+(new Date(time).getMinutes());
 
-    var message = '-\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nTime: '+newTime+'\nNumber: '+number;
-    console.log(message);
+    // Create variables of proposed details
+    if (new Date(newDate) >= new Date(today) && cur_time >= startTime && cur_time <= endTime) {
+      var name = ss.getRange(last, name).getValue();
+      var number = ss.getRange(last, number).getValue();
+      var newTime = Utilities.formatDate(time, "GMT+19", 'h:mm a');
+      var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
 
+      message += '\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nTime: '+newTime+'\nNumber: '+number;
+    } 
+    if (new Date(newDate) < new Date(today)) {
+      message += '\nError: Date has passed';
+    }
+    if (cur_time < startTime || cur_time > endTime) {
+      message += '\nError: Outside of business hours';
+    }
     try {
-      response_data = sendSms("3474970849", message);
+      if(!message.includes("Error")) {
+        response_data = sendSms("3474970849", message);
+      }
+      response_data = sendSms(number, message);
     } catch(err) {
-        Logger.log(err);
+      Logger.log(err);
     }
   } 
 }
