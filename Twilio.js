@@ -40,7 +40,7 @@ function avail(e) {
   var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
   var number = ss.getRange(last, number).getValue();
 
-  if (limiter()+20 > 10) {
+  if (limiter() > 10) {
     email(number);
     return;
   }
@@ -113,7 +113,7 @@ function visit(e) {
   var cur_time = (new Date(time).getHours())*60+(new Date(time).getMinutes());
   var number = ss.getRange(last, number).getValue();
 
-  if (limiter()> 10) {
+  if (limiter() > 10) {
     email(number);
     return;
   }
