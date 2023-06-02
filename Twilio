@@ -22,7 +22,7 @@ function sendSms(to, body) {
 function avail(e) {
 
   // Ensure it's the correct form being requested
-  if (e.source.getActiveSheet().getName() === 'Avail' || limiter() > 10) {
+  if (e.source.getActiveSheet().getName() != 'Avail' || limiter() > 10) {
     return;
   }   
   var timestamp = 1;
