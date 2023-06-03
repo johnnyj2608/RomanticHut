@@ -21,15 +21,10 @@ function sendSms(to, body) {
 
 function avail(e) {
 
-  // Ensure it's the correct form being requested
-  if (e.source.getActiveSheet().getName() != 'Avail') {
-    return;
-  }
   var timestamp = 1;
-  var name = 2;
-  var date = 3;
-  var room = 4;
-  var number = 5;
+  var date = 2;
+  var room = 3;
+  var number = 4;   // Regex for # validation: ^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$
   var message = 'Romantic Hut Party Hall';
 
   // Variables to check if proposed date is possible
@@ -38,7 +33,8 @@ function avail(e) {
   var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
   var date = ss.getRange(last, date).getValue();
   var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
-  var number = ss.getRange(last, number).getValue();
+  var phone = ss.getRange(last, number).getValue();
+  var number = parseInt(String(phone).replace(/\D/g,''));
 
   if (limiter() > 10) {
     email(number);
@@ -47,8 +43,7 @@ function avail(e) {
   
   // Create variables of proposed details
   if (new Date(newDate) >= new Date(today)) {
-    var name = ss.getRange(last, name).getValue();
-    var room = ss.getRange(last, room).getValue();
+    var room = ss.getRange(last, room).getValue().split(' ')[0];
     var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
     var status = '';
 
@@ -73,7 +68,7 @@ function avail(e) {
         break;
       }
     }
-    message += '\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nRoom: '+room+'\nStatus: '+status;
+    message += '\nDay: '+day+'\nDate: '+newDate+'\nRoom: '+room+'\nStatus: '+status;
   } else {
     message += '\nError: Date has passed';
   }
@@ -92,25 +87,25 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   var startRow = 2;
   var numRows = 0;
   var timestamp = 1;
-  var name = 2;
-  var date = 3;
-  var time = 4;
-  var number = 5;
+  var date = 2;
+  var room = 3;
+  var number = 4;
   var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
 
   var avail = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
   var last = avail.getRange("A1:A").getValues().filter(String).length;
-  var number = avail.getRange(last, number).getValue();
+  var phone = avail.getRange(last, number).getValue();
+  var number = parseInt(String(phone).replace(/\D/g,''));
 
   numRows = avail.getRange("A1:A").getValues().filter(String).length;
-  var availRange = avail.getRange(startRow, 1, numRows, 5); 
+  var availRange = avail.getRange(startRow, 1, numRows, 4); 
   var availData = availRange.getValues();
 
-  // Count date and number pairs of avail form
+  // Count timestamp and number pairs of avail form
   for (i in availData) {
     var row = availData[i];
     var curDate = Utilities.formatDate(new Date(row[0]), "GMT+19", 'MMMM d, yyyy');
-    var curNumber = row[4];
+    var curNumber = parseInt(String(row[3]).replace(/\D/g,''));
     if (today === curDate && number === curNumber) {
       count += 1;
     } 
