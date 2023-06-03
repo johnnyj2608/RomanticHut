@@ -24,7 +24,7 @@ function avail(e) {
   // Ensure it's the correct form being requested
   if (e.source.getActiveSheet().getName() != 'Avail') {
     return;
-  }   
+  }
   var timestamp = 1;
   var name = 2;
   var date = 3;
@@ -87,64 +87,6 @@ function avail(e) {
   }
 }
 
-function visit(e) {
-
-  // Ensure it's the correct form being requested
-  if (e.source.getActiveSheet().getName() != 'Visit') {
-    return;
-  }
-  var timestamp = 1;
-  var name = 2;
-  var date = 3;
-  var time = 4;
-  var number = 5;
-  var startTime = 480;  // 8 AM
-  var endTime = 900;   // 3 PM
-  var sunday = 0;
-  var message = 'Romantic Hut Party Hall';
-
-  // Variables to check if proposed date and time is possible
-  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Visit");
-  var last = ss.getRange("A1:A").getValues().filter(String).length;
-  var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
-  var date = ss.getRange(last, date).getValue();
-  var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
-  var time = ss.getRange(last, time).getValue();
-  var cur_time = (new Date(time).getHours())*60+(new Date(time).getMinutes());
-  var number = ss.getRange(last, number).getValue();
-
-  if (limiter() > 10) {
-    email(number);
-    return;
-  }
-
-  // Create variables of proposed details
-  if (new Date(newDate) >= new Date(today) && cur_time >= startTime && cur_time <= endTime && new Date(newDate).getDay() > sunday) {
-    var name = ss.getRange(last, name).getValue();
-    var newTime = Utilities.formatDate(time, "GMT+19", 'h:mm a');
-    var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
-
-    message += '\nName: '+name+'\nDay: '+day+'\nDate: '+newDate+'\nTime: '+newTime+'\nNumber: '+number;
-  } 
-  if (new Date(newDate) < new Date(today)) {
-    message += '\nError: Date has passed';
-  }
-  if (cur_time < startTime || cur_time > endTime || new Date(newDate).getDay() <= sunday) {
-    message += '\nError: Outside of business hours';
-  }
-  try {
-    if(!message.includes("Error")) {
-      response_data = sendSms("3474970849", message);
-    }
-    response_data = sendSms('1'+number, message);
-    if (limiter() === 10) {
-      response_data = sendSms('1'+number, 'You have reached your daily limit with this bot');
-    }
-  } catch(err) {
-    Logger.log(err);
-  }
-}
-
 function limiter() {  // Same date from timestamp and phone number. Email if if it happens
   var count = 0;
   var startRow = 2;
@@ -156,28 +98,9 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   var number = 5;
   var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
 
-  var visit = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Visit");
-  var lastVisit = visit.getRange("A1:A").getValues().filter(String).length;
-  var number = visit.getRange(lastVisit, number).getValue();
-
-  numRows = visit.getRange("A1:A").getValues().filter(String).length;
-  var visitRange = visit.getRange(startRow, 1, numRows, 5);
-  var visitData = visitRange.getValues();
-
-  // Count date and number pairs of visit form
-  for (i in visitData) {
-    var row = visitData[i];
-    var curDate = Utilities.formatDate(new Date(row[0]), "GMT+19", 'MMMM d, yyyy');
-    var curNumber = row[4];
-    if (today === curDate && number === curNumber) {
-      count += 1;
-    }
-  }
-
-  number = 5;   // Reset var to column #
   var avail = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
-  var lastAvail = avail.getRange("A1:A").getValues().filter(String).length;
-  var number = avail.getRange(lastAvail, number).getValue();
+  var last = avail.getRange("A1:A").getValues().filter(String).length;
+  var number = avail.getRange(last, number).getValue();
 
   numRows = avail.getRange("A1:A").getValues().filter(String).length;
   var availRange = avail.getRange(startRow, 1, numRows, 5); 
