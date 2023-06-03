@@ -19,7 +19,7 @@ function sendSms(to, body) {
   UrlFetchApp.fetch(messages_url, options);
 }
 
-function avail(e) {
+function romanticHut(e) {
 
   var timestamp = 1;
   var date = 2;
@@ -30,9 +30,9 @@ function avail(e) {
   // Variables to check if proposed date is possible
   var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
   var last = ss.getRange("A1:A").getValues().filter(String).length;
-  var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
+  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMMM d, yyyy');
   var date = ss.getRange(last, date).getValue();
-  var newDate = Utilities.formatDate(date, "GMT+19", 'MMMM d, yyyy');
+  var newDate = Utilities.formatDate(date, "GMT-4", 'MMMM d, yyyy');
   var phone = ss.getRange(last, number).getValue();
   var number = parseInt(String(phone).replace(/\D/g,''));
 
@@ -40,35 +40,14 @@ function avail(e) {
     email(number);
     return;
   }
-  
   // Create variables of proposed details
   if (new Date(newDate) >= new Date(today)) {
-    var room = ss.getRange(last, room).getValue().split(' ')[0];
-    var day = Utilities.formatDate(date, "GMT+19", 'EEEE');
-    var status = '';
-
-  // Create list of reserved dates
-    var public = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Public");
-    var startRow = 3;
-    var numRows = public.getRange("A1:A").getValues().filter(String).length;
-    var dataRange = public.getRange(startRow, 1, numRows, 2);
-    var data = dataRange.getValues();
-
-  // If date and room pair matches, FULL. If proposed date passed, OPEN
-    for (i in data) {
-      var row = data[i];
-      var curDate = Utilities.formatDate(row[0], "GMT+19", 'MMMM d, yyyy');
-      var curRoom = row[1];
-      if (newDate === curDate && room == curRoom) {
-        status = 'FULL';
-        break;
-      } 
-      if (new Date(newDate) < new Date(curDate)) {
-        status = 'OPEN';
-        break;
-      }
+    var day = Utilities.formatDate(date, "GMT-4", 'EEE, ');
+    var rooms = ss.getRange(last, room).getValue().split(', ');
+    for (i in rooms) {
+      rooms[i] = rooms[i].split(' ')[0];
     }
-    message += '\nDay: '+day+'\nDate: '+newDate+'\nRoom: '+room+'\nStatus: '+status;
+    message += '\nDate: '+day+newDate+avail(rooms, newDate);
   } else {
     message += '\nError: Date has passed';
   }
@@ -90,7 +69,7 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   var date = 2;
   var room = 3;
   var number = 4;
-  var today = Utilities.formatDate(new Date(), "GMT+19", 'MMMM d, yyyy');
+  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMMM d, yyyy');
 
   var avail = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
   var last = avail.getRange("A1:A").getValues().filter(String).length;
@@ -104,13 +83,45 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   // Count timestamp and number pairs of avail form
   for (i in availData) {
     var row = availData[i];
-    var curDate = Utilities.formatDate(new Date(row[0]), "GMT+19", 'MMMM d, yyyy');
+    var curDate = Utilities.formatDate(new Date(row[0]), "GMT-4", 'MMMM d, yyyy');
     var curNumber = parseInt(String(row[3]).replace(/\D/g,''));
     if (today === curDate && number === curNumber) {
       count += 1;
     } 
   }
   return count;
+}
+
+function avail(rooms, date) {
+
+  var res = '';
+  var status = '';
+
+  // Create list of reserved dates
+  var public = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Public");
+  var startRow = 3;
+  var numRows = public.getRange("A1:A").getValues().filter(String).length;
+  var dataRange = public.getRange(startRow, 1, numRows, 2);
+  var data = dataRange.getValues();
+
+  // If date and room pair matches, FULL. If proposed date passed, OPEN
+  for (i in rooms) {
+    for (j in data) {
+      var row = data[j];
+      var curDate = Utilities.formatDate(row[0], "GMT-4", 'MMMM d, yyyy');
+      var curRoom = row[1];
+      if (date === curDate && rooms[i] == curRoom) {
+        status = 'FULL';
+        break;
+      } 
+      if (new Date(date) < new Date(curDate)) {
+        status = 'OPEN';
+        break;
+      }
+    }
+    res += '\nRoom: '+rooms[i]+'\tStatus: '+status;
+  }
+  return res;
 }
 
 function email(message) {
