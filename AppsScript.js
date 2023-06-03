@@ -1,24 +1,3 @@
-function sendSms(to, body) {
-  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
-
-  var payload = {
-    "To": to,
-    "Body" : body,
-    "From" : "TWILIO"
-  };
-
-  var options = {
-    "method" : "post",
-    "payload" : payload
-  };
-
-  options.headers = { 
-    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
-  };
-
-  UrlFetchApp.fetch(messages_url, options);
-}
-
 function romanticHut(e) {
 
   var timestamp = 1;
@@ -30,9 +9,9 @@ function romanticHut(e) {
   // Variables to check if proposed date is possible
   var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
   var last = ss.getRange("A1:A").getValues().filter(String).length;
-  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMMM d, yyyy');
+  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMM d, yyyy');
   var date = ss.getRange(last, date).getValue();
-  var newDate = Utilities.formatDate(date, "GMT-4", 'MMMM d, yyyy');
+  var newDate = Utilities.formatDate(date, "GMT-4", 'MMM d, yyyy');
   var phone = ss.getRange(last, number).getValue();
   var number = parseInt(String(phone).replace(/\D/g,''));
 
@@ -69,7 +48,7 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   var date = 2;
   var room = 3;
   var number = 4;
-  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMMM d, yyyy');
+  var today = Utilities.formatDate(new Date(), "GMT-4", 'MMM d, yyyy');
 
   var avail = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Avail");
   var last = avail.getRange("A1:A").getValues().filter(String).length;
@@ -83,7 +62,7 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
   // Count timestamp and number pairs of avail form
   for (i in availData) {
     var row = availData[i];
-    var curDate = Utilities.formatDate(new Date(row[0]), "GMT-4", 'MMMM d, yyyy');
+    var curDate = Utilities.formatDate(new Date(row[0]), "GMT-4", 'MMM d, yyyy');
     var curNumber = parseInt(String(row[3]).replace(/\D/g,''));
     if (today === curDate && number === curNumber) {
       count += 1;
@@ -108,7 +87,7 @@ function avail(rooms, date) {
   for (i in rooms) {
     for (j in data) {
       var row = data[j];
-      var curDate = Utilities.formatDate(row[0], "GMT-4", 'MMMM d, yyyy');
+      var curDate = Utilities.formatDate(row[0], "GMT-4", 'MMM d, yyyy');
       var curRoom = row[1];
       if (date === curDate && rooms[i] == curRoom) {
         status = 'FULL';
@@ -122,6 +101,27 @@ function avail(rooms, date) {
     res += '\nRoom: '+rooms[i]+'\tStatus: '+status;
   }
   return res;
+}
+
+function sendSms(to, body) {
+  var messages_url = "https://api.twilio.com/2010-04-01/Accounts/SID/Messages.json";
+
+  var payload = {
+    "To": to,
+    "Body" : body,
+    "From" : "TWILIO"
+  };
+
+  var options = {
+    "method" : "post",
+    "payload" : payload
+  };
+
+  options.headers = { 
+    "Authorization" : "Basic " + Utilities.base64Encode("SID:AUTH")
+  };
+
+  UrlFetchApp.fetch(messages_url, options);
 }
 
 function email(message) {
