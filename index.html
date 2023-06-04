@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-      Site created by Brian Design on youtube @ www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber
-    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Romantic Hut Party Hall</title>
@@ -35,10 +32,10 @@
             <a href="/" class="navbar__links">Home</a>
           </li>
           <li class="navbar__item">
-            <a href="/" class="navbar__links">Availability</a>
+            <a href="/availability.html" class="navbar__links">Availability</a>
           </li>
           <li class="navbar__item">
-            <a href="/tech.html" class="navbar__links">Gallery</a>
+            <a href="/gallery.html" class="navbar__links">Gallery</a>
           </li>
           <li class="navbar__item">
             <a href="/tech.html" class="navbar__links">Español</a>
@@ -51,23 +48,20 @@
     <div class="main">
       <div class="main__content">
         <h1>Romantic Hut</h1>
-        <h1>Party Hall</h1>
+        <h3>Perfect for any event</h3>
       </div>
     </div>
 
     <!-- About Us -->
     <section class="grey">
       <div class="services">
-        <h1>One of the top venue for Brooklyn.</h1> 
-        <h1>This space is BIG, CLEAN, and NEW. 
-          All you can ask for with the best price.</h1>
         <div class="services__container">
           <div class="services__card">
-            <div class="prices__container">
+            <div id="about" class="prices__container">
+              <h1>Business Information</h1>
               <div class="prices">
                 <h3>Walk-In Hours:</h3>
-                <p>Monday - Saturday
-                  <br>8 AM - 3 PM
+                <p>Monday - Saturday<br>8 AM - 3 PM
                 </p>
               </div>
               <div class="prices">
@@ -76,13 +70,16 @@
               </div>
               <div class="prices">
                 <h3>Address:</h3>
-                <p>839 61st St Brooklyn, NY 11220</p>
+                <p>839 61st St<br>Brooklyn, NY 11220</p>
+              </div>
+              <div class="prices">
+                <p class="center">Please call to schedule an appointment if you can not make these times.</p>
               </div>
             </div>
-            <p>Please call to schedule an appointment if you can not make these times.</p>
+            
           </div>
           <div class="services__card">
-            <img class="img" src="images/1.jpg" />
+            <img id="right" class="img" src="images/3.jpg" />
           </div>
         </div>
       </div>
@@ -93,7 +90,8 @@
      <!--Prices-->
      <section class="white">
       <div class="services">
-        <h1>Prices (5 Hours)</h1>
+        <h1>Party Prices</h1>
+        <h3>(5 hours of rental time)</h3>
         <div class="services__container">
           <div class="prices__card">
             <h3>Combined Hall<br>(Occupancy: 330)</h3>
@@ -114,8 +112,7 @@
         </div>
         <h3>You can purchase an additional hour for $300</h3>
         <div class="services__container">
-          <button class="button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeTlDD8dm8-F9GUnFfCzS5ZjpD8tCWHRILuw5AZ-O7MOYQr5w/viewform','_blank')">Availability</button> 
-          <!--https://docs.google.com/forms/d/e/1FAIpQLSeTlDD8dm8-F9GUnFfCzS5ZjpD8tCWHRILuw5AZ-O7MOYQr5w/viewform-->
+          <button class="button" onclick = "window.location.href='/availability.html';">Check Availability</button>
         </div>
       </div>
     </section>
@@ -140,28 +137,8 @@
       </div>
     </section>
 
-    <section>
-      <div class="white">
-        <div class="services">
-          <div class="services__container">
-            <div class="services__card">
-              <h1>Making A Reservation</h1>
-              <p>- Schedule an appointment to reserve your date.
-              <br>- A deposit of $400 is required via cash or Zelle.
-              <br>- A form of identification is required for paperwork.
-              <br>- Payment must be paid in full a week prior of party date.
-              </p>
-            </div>
-            <div class="services__card">
-              <img class="img" src="images/3.jpg" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Photo Gallery -->
-    <section class="grey">
+    
+    <section class="white">
       <div class="services">
         <h1>Photo Gallery</h1>
         <div class="services__container">
@@ -172,16 +149,8 @@
       </div>
     </section>
 
+    <!-- Photo Gallery -->
     <section class="white">
-      <div class="services">
-        <h1>Google Maps</h1>
-        <div class="services__container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.7963515281117!2d-74.00900050000004!3d40.63437290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245499b9e4b8b%3A0x9f94588217821a73!2s839%2061st%20St%2C%20Brooklyn%2C%20NY%2011220!5e0!3m2!1sen!2sus!4v1685839544483!5m2!1sen!2sus" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div>
-    </section>
-
-    <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeTlDD8dm8-F9GUnFfCzS5ZjpD8tCWHRILuw5AZ-O7MOYQr5w/viewform?embedded=true" width="640" height="805" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    -->
-    <section class="grey">
       <div id="main-slider" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
@@ -212,8 +181,17 @@
                 </li>
             </ul>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <section class="grey">
+      <div class="services">
+        <h1>Google Maps</h1>
+        <div class="services__container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.7963515281117!2d-74.00900050000004!3d40.63437290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245499b9e4b8b%3A0x9f94588217821a73!2s839%2061st%20St%2C%20Brooklyn%2C%20NY%2011220!5e0!3m2!1sen!2sus!4v1685839544483!5m2!1sen!2sus" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div>
+    </section>
+
+    
 
     <!-- Footer Section -->
     <div class="footer__container">
