@@ -18,6 +18,8 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="splide.min.css" />
+    <link rel="stylesheet" href="splide-red.min.css" />
   </head>
   <body>
     <!-- Navbar Section -->
@@ -177,10 +179,80 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.7963515281117!2d-74.00900050000004!3d40.63437290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245499b9e4b8b%3A0x9f94588217821a73!2s839%2061st%20St%2C%20Brooklyn%2C%20NY%2011220!5e0!3m2!1sen!2sus!4v1685839544483!5m2!1sen!2sus" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div>
     </section>
 
+    <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeTlDD8dm8-F9GUnFfCzS5ZjpD8tCWHRILuw5AZ-O7MOYQr5w/viewform?embedded=true" width="640" height="805" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    -->
+    <section class="grey">
+      <div id="main-slider" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img src="images/large1.jpg" alt="">
+            </li>
+            <li class="splide__slide">
+              <img src="images/large2.jpg" alt="">
+            </li>
+            <li class="splide__slide">
+              <img src="images/large3.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="thumbnail-slider" class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                  <img src="images/large1.jpg" alt="">
+                </li>
+                <li class="splide__slide">
+                  <img src="images/large2.jpg" alt="">
+                </li>
+                <li class="splide__slide">
+                  <img src="images/large3.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+  </section>
+
     <!-- Footer Section -->
     <div class="footer__container">
         <p>© ROMANTIC HUT 2023. All rights reserved</p>
     </div>
     <script src="app.js"></script>
+    <script src="splide.min.js"></script>
+    <script>
+      new Splide( '.splide' ).mount();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var main = new Splide('#main-slider', {
+              type: 'fade',
+              rewind: true,
+              pagination: false,
+              arrows: false,
+          });
+
+          var thumbnails = new Splide('#thumbnail-slider', {
+              fixedWidth: 200,
+              fixedHeight: 120,
+              gap: 10,
+              rewind: true,
+              pagination: false,
+              cover: true,
+              isNavigation: true,
+              breakpoints: {
+                  600: {
+                      fixedWidth: 60,
+                      fixedHeight: 44,
+                  },
+              },
+          });
+
+          main.sync(thumbnails);
+          main.mount();
+          thumbnails.mount();
+      });
+  </script>
   </body>
 </html>
