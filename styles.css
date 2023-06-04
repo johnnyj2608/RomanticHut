@@ -222,11 +222,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    animation-duration: 30s;
-    animation-name: animate;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    /*animation: animate 2s ease-in-out infinite;*/
+    animation: animate 30s ease-in-out infinite;
   }
 
   .main__content {
@@ -235,7 +231,10 @@
   } 
 
   .main__content h1{
-    filter: drop-shadow(5px 5px #000000);
+    filter: drop-shadow(2px 2px #000000) 
+    drop-shadow(-2px -2px #000000)
+    drop-shadow(-2px 2px #000000)
+    drop-shadow(2px -2px #000000);
     font-size: 100px; 
     background-color: #ff8177; 
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
@@ -248,26 +247,26 @@
   }
 
 @keyframes animate {
-  0%, 100% {
+  0% , 14% {
       background-image: url(images/large1.jpg);
   }
-  17%
+  17%, 31%
   {
       background-image: url(images/small1.jpg);
   }
-  34%
+  34%, 47%
   {
       background-image: url(images/large2.jpg);
   }
-  50%
+  50%, 64%
   {
       background-image: url(images/small2.jpg);
   }
-  67%
+  67%, 81%
   {
       background-image: url(images/large3.jpg);
   }
-  84%
+  84%, 97%
   {
       background-image: url(images/small3.jpg);
   }
