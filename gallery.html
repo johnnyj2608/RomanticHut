@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML CSS Website</title>
+    <title>Romantic Hut Party Hall</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -15,6 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="splide.min.css" />
+    <link rel="stylesheet" href="splide-red.min.css" />
   </head>
   <body>
     <!-- Navbar Section -->
@@ -43,12 +45,74 @@
     </nav> 
 
     <section class="white">
-      <div class="services">
-        <h1>Google Form</h1>
-        <div class="services__container">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeTlDD8dm8-F9GUnFfCzS5ZjpD8tCWHRILuw5AZ-O7MOYQr5w/viewform?embedded=true" width="640" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </section>
+      <div id="main-slider" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img src="images/large1.jpg" alt="">
+            </li>
+            <li class="splide__slide">
+              <img src="images/large2.jpg" alt="">
+            </li>
+            <li class="splide__slide">
+              <img src="images/large3.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="thumbnail-slider" class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                  <img src="images/large1.jpg" alt="">
+                </li>
+                <li class="splide__slide">
+                  <img src="images/large2.jpg" alt="">
+                </li>
+                <li class="splide__slide">
+                  <img src="images/large3.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
 
     <script src="app.js"></script>
+    <script src="splide.min.js"></script>
+    <script>
+      new Splide( '.splide' ).mount();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var main = new Splide('#main-slider', {
+              type: 'fade',
+              rewind: true,
+              pagination: false,
+              arrows: false,
+          });
+
+          var thumbnails = new Splide('#thumbnail-slider', {
+              fixedWidth: 200,
+              fixedHeight: 120,
+              gap: 10,
+              rewind: true,
+              pagination: false,
+              cover: true,
+              isNavigation: true,
+              breakpoints: {
+                  600: {
+                      fixedWidth: 60,
+                      fixedHeight: 44,
+                  },
+              },
+          });
+
+          main.sync(thumbnails);
+          main.mount();
+          thumbnails.mount();
+      });
+  </script>
   </body>
 </html>
