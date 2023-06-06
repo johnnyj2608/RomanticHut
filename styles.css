@@ -5,6 +5,14 @@
     color: #131313;
 }
 
+body { 
+  padding-top: 80px; 
+}
+
+html {
+  scroll-behavior: smooth
+}
+
 .white {
   background: #ffffff;
   height: 90vh;
@@ -13,6 +21,13 @@
 .grey {
   background:#ededed;
   height: 90vh;
+}
+
+.anchors {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
 }
 
 .navbar {
@@ -65,7 +80,6 @@
 /* Main Content CSS */
 .main {
   display: flex;
-  margin-top: 10vh;
   height: 90vh;
   width: 100%;
   z-index: 1;
@@ -164,12 +178,6 @@
   height: 45vh;
   width: 100%;
   z-index: 1;
-}
-
-#map {
-  border-style: solid;
-  padding: 0px;
-  height: 453px;
 }
 
 /* Footer CSS */
