@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="splide.min.css" />
     <link rel="stylesheet" href="splide-red.min.css" />
     <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
@@ -59,22 +60,23 @@
     <section class="grey">
       <div id="about" class="anchors"></div>
       <div class="container">
-        <div class="row">
+        <div class="row" data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true">
           <div class="col">
             <h1><strong>About Us</strong></h1>
-            <p>Romantic Hut Party Hall is one of the top venues in Brooklyn.
-              High ceilings, open space, and located away from traffic while in the heart of Sunset Park.
-              Only half a block from the nearest subway station, we offer affordable rates for your next event!</p>
+            <p><span class="rh">Romantic Hut</span> &nbsp is one of the top venues in Brooklyn!
+              High ceilings, open space, and away from traffic while in the heart of Sunset Park.
+              Amaze your guests with our boutique room by decorating it just the way you like it.
+              Only a <strong>½</strong> block from the nearest subway station, we offer affordable rates for your next event!</p>
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
             <p><strong>Walk-In Hours</strong><br>Monday - Saturday<br>8 AM - 3 PM</p>
             <p><strong>Phone</strong><br>(646) 510-2653</p>
             <p><strong>Address</strong><br>839 61st St<br>Brooklyn, NY 11220</p>
             <p>Please call to schedule an appointment if you can not make these times.</p>
           </div>
-          <div id="map" class="col">
+          <div class="col" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.796168212235!2d-74.01157542404198!3d40.63437694236422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245499b9e4b8b%3A0x9f94588217821a73!2s839%2061st%20St%2C%20Brooklyn%2C%20NY%2011220!5e0!3m2!1sen!2sus!4v1686010482367!5m2!1sen!2sus" 
             width="450" height="450" style="border:solid;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -92,7 +94,7 @@
             <p>(Includes all additional costs)</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true">
           <div class="col">
             <h3>Combined Hall<br>(Occupancy: 330)</h3>
             <h2><strong>$4,700</strong></h2>
@@ -136,6 +138,11 @@
     <!-- Gallery -->
     <section class="grey">
       <div id="gallery" class="anchors"></div>
+      <div class="row">
+        <div class="col">
+          <h1><strong>Photo Gallery</strong></h1>
+        </div>
+      </div>
       <div id="main-slider" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
@@ -189,8 +196,8 @@
           });
 
           var thumbnails = new Splide('#thumbnail-slider', {
-              fixedWidth: 200,
-              fixedHeight: 120,
+              fixedWidth: 180,
+              fixedHeight: 100,
               gap: 10,
               rewind: true,
               pagination: false,
@@ -208,6 +215,10 @@
           main.mount();
           thumbnails.mount();
       });
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
   </body>
 </html>

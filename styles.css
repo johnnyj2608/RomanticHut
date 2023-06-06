@@ -30,11 +30,42 @@ html {
   visibility: hidden;
 }
 
+.rh {
+  filter: drop-shadow(0.5px 0.5px #000000) 
+  drop-shadow(-0.5px -0.5px #000000)
+  drop-shadow(-0.5px 0.5px #000000)
+  drop-shadow(0.5px -0.5px #000000);
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
 .navbar {
   height: 80px;
 }
 
 #navbar__logo {
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.nav-link {
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
   background-size: 100%;
@@ -72,9 +103,10 @@ html {
   transition: all 0.3s ease;
 }
 
-.navbar__links:hover {
-  color: #f77062;
+.nav-link:hover {
+  background-image: linear-gradient(to top, #4837ff 0%, #00ff84 100%);
   transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
 /* Main Content CSS */
