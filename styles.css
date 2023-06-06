@@ -15,12 +15,12 @@ html {
 
 .white {
   background: #ffffff;
-  height: 90vh;
+  height: fit-content;
 }
 
 .grey {
   background:#ededed;
-  height: 90vh;
+  height: fit-content;
 }
 
 .anchors {
@@ -28,6 +28,10 @@ html {
   position: relative;
   top: -80px;
   visibility: hidden;
+}
+
+.container {
+  padding: 25px 0px;
 }
 
 .rh {
@@ -146,23 +150,6 @@ html {
   text-transform: uppercase;
 }
 
-.main__content h3 {
-  filter: drop-shadow(2px 2px #000000) 
-  drop-shadow(-2px -2px #000000)
-  drop-shadow(-2px 2px #000000)
-  drop-shadow(2px -2px #000000);
-  font-size: 30px; 
-  background-color: #ff8177; 
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  position: relative;
-  text-transform: uppercase;
-}
-
 @keyframes animate {
   0% , 14% {
       background-image: url(images/large1.jpg);
@@ -173,7 +160,7 @@ html {
   }
   34%, 47%
   {
-      background-image: url(images/large2.jpg);
+      background-image: url(images/small3.jpg);
   }
   50%, 64%
   {
@@ -185,12 +172,11 @@ html {
   }
   84%, 97%
   {
-      background-image: url(images/small3.jpg);
+      background-image: url(images/large2.jpg);
   }
 }
 
 .row {
-  padding-top: 25px;
   align-items: center;
 }
 
@@ -202,6 +188,14 @@ html {
 .col h1 {
   font-size: 35px;
   text-transform: uppercase;
+}
+
+#included {
+  text-align: left;
+}
+
+#prices {
+  padding: 25px;
 }
 
 .img {
