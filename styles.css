@@ -34,39 +34,8 @@ html {
   padding: 25px 0px;
 }
 
-.rh {
-  filter: drop-shadow(0.5px 0.5px #000000) 
-  drop-shadow(-0.5px -0.5px #000000)
-  drop-shadow(-0.5px 0.5px #000000)
-  drop-shadow(0.5px -0.5px #000000);
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  text-decoration: none;
-  font-size: 2rem;
-}
-
 .navbar {
   height: 80px;
-}
-
-#navbar__logo {
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2rem;
 }
 
 .nav-link {
@@ -84,11 +53,15 @@ html {
   font-size: 2rem;
 }
 
-.fa-gem {
+.navbar-nav > li{
+  padding: 5px;
+}
+
+.fa-fire {
   margin-right: 0.5rem;
 }
 
-.button {
+.form {
   text-decoration: none;
   color: #fff;
   padding: 10px 20px;
@@ -108,7 +81,7 @@ html {
 }
 
 .nav-link:hover {
-  background-image: linear-gradient(to top, #4837ff 0%, #00ff84 100%);
+  background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
   transition: all 0.3s ease;
   border-radius: 5px;
 }
@@ -186,28 +159,30 @@ html {
 }
 
 .col h1 {
-  font-size: 35px;
+  font-size: 30px;
   text-transform: uppercase;
 }
 
-#included {
-  text-align: left;
+#included p {
+  display: inline-block; 
+  text-align: left
 }
 
-#prices {
-  padding: 25px;
+.prices {
+  padding: 40px 25px;
+}
+
+#photo {
+  padding-bottom: 0px;
 }
 
 .img {
-  display: flex;
-  margin: 0 auto;
-  height: 45vh;
+  height: 100%;
   width: 100%;
-  z-index: 1;
 }
 
 /* Footer CSS */
-.footer__container {
+.footer {
   height: 80px;
   background-color: #141414;
   display: flex;
@@ -216,7 +191,7 @@ html {
   align-items: center;
 }
 
-.footer__container p {
+.footer p {
   color: #fff
 }
 
