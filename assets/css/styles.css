@@ -13,6 +13,10 @@ html {
   scroll-behavior: smooth
 }
 
+p {
+  font-size: 20px;
+}
+
 .white {
   background: #ffffff;
   height: fit-content;
