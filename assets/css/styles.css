@@ -166,6 +166,7 @@ html {
 
 .prices {
   padding: 40px 25px;
+  white-space: nowrap;
 }
 
 #photo {
