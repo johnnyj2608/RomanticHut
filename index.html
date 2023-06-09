@@ -17,10 +17,11 @@
     </head>
   <body>
   <div id="top"></div>
+
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #131313;">
       <div class="container-fluid">
-        <a onclick="jump('top')" class="navbar-brand nav-link"><i class="fas fa-fire"></i>ROMANTIC HUT</a>
+        <a class="navbar-brand nav-link" onclick="jump('top')"><i class="fas fa-fire"></i>ROMANTIC HUT</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,9 +43,10 @@
         </div>
       </div>
     </nav>
+
     <!-- Landing Page -->
-    <div class="main">
-      <div class="main__content">
+    <div class="main row text-center align-items-center">
+      <div class="col">
         <h1>Romantic Hut</h1>
       </div>
     </div>
@@ -114,6 +116,7 @@
         </div>
       </div>
     </section>
+
     <!-- What's Included -->
     <section class="grey">
       <div id="hall" class="anchors"></div>
@@ -220,52 +223,23 @@
     </section>
 
     <!-- Footer Section -->
+    <footer></footer>
     <div class="footer">
-      <p>© ROMANTIC HUT 2023. All rights reserved</p>
+      <div class="container">
+        <div class="row text-center align-items-center">
+          <div class="col">
+            <p>© ROMANTIC HUT 2023. All rights reserved</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/splide.min.js"></script>
-    <script>
-      new Splide( '.splide' ).mount();
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          var main = new Splide('#main-slider', {
-              type: 'fade',
-              rewind: true,
-              pagination: false,
-              arrows: false,
-          });
-
-          var thumbnails = new Splide('#thumbnail-slider', {
-              fixedWidth: 160,
-              fixedHeight: 80,
-              gap: 10,
-              rewind: true,
-              pagination: false,
-              cover: true,
-              isNavigation: true,
-              breakpoints: {
-                  600: {
-                      fixedWidth: 60,
-                      fixedHeight: 44,
-                  },
-              },
-          });
-
-          main.sync(thumbnails);
-          main.mount();
-          thumbnails.mount();
-      });
-  </script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
-    crossorigin="anonymous">
-  </script>
+    crossorigin="anonymous"></script>
+    <script>start();</script>
   </body>
 </html>

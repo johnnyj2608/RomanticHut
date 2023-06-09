@@ -5,10 +5,6 @@
     color: #131313;
 }
 
-body { 
-  padding-top: 60px; 
-}
-
 html {
   scroll-behavior: smooth
 }
@@ -46,10 +42,7 @@ p {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
   cursor: pointer;
-  text-decoration: none;
   font-size: 1.25rem !important;
 }
 
@@ -74,7 +67,7 @@ p {
   position: relative;
 }
 
-.button:hover {
+.form:hover {
   cursor: pointer;
   background: #4837ff;
   transition: all 0.3s ease;
@@ -88,39 +81,13 @@ p {
 
 /* Main Content CSS */
 .main {
-  display: flex;
-  height: 95vh;
-  width: 100%;
-  z-index: 1;
-  text-align: center;
-  align-items: center;
+  padding-top: 55px; 
+  height: 100vh;
   background-image: url(../../images/large1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   animation: animate 30s ease-in-out infinite;
-}
-
-.main__content {
-  color: #fff;
-  width: 100%;
-} 
-
-.main__content h1 {
-  filter: drop-shadow(2px 2px #000000) 
-  drop-shadow(-2px -2px #000000)
-  drop-shadow(-2px 2px #000000)
-  drop-shadow(2px -2px #000000);
-  font-size: 100px; 
-  background-color: #ff8177; 
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  position: relative;
-  text-transform: uppercase;
 }
 
 @keyframes animate {
@@ -149,6 +116,22 @@ p {
   }
 }
 
+.main h1 {
+  filter: drop-shadow(2px 2px #000000) 
+  drop-shadow(-2px -2px #000000)
+  drop-shadow(-2px 2px #000000)
+  drop-shadow(2px -2px #000000);
+  font-size: 90px; 
+  background-color: #ff8177; 
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
 #included p {
   display: inline-block; 
   text-align: left
@@ -162,20 +145,16 @@ p {
 .img {
   height: 100%;
   width: 100%;
+  margin: 20px;
 }
 
 /* Footer CSS */
 .footer {
-  height: 80px;
-  background-color: #141414;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #131313;
 }
 
 .footer p {
-  color: #fff
+  color: #ffffff;
 }
 
 #main-slider .splide__slide{
