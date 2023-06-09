@@ -90,7 +90,7 @@ html {
   z-index: 1;
   text-align: center;
   align-items: center;
-  background-image: url(images/large1.jpg);
+  background-image: url(../../images/large1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -121,27 +121,27 @@ html {
 
 @keyframes animate {
   0% , 14% {
-      background-image: url(images/large1.jpg);
+      background-image: url(../../images/large1.jpg);
   }
   17%, 31%
   {
-      background-image: url(images/small1.jpg);
+      background-image: url(../../images/small1.jpg);
   }
   34%, 47%
   {
-      background-image: url(images/small3.jpg);
+      background-image: url(../../images/small3.jpg);
   }
   50%, 64%
   {
-      background-image: url(images/small2.jpg);
+      background-image: url(../../images/small2.jpg);
   }
   67%, 81%
   {
-      background-image: url(images/large3.jpg);
+      background-image: url(../../images/large3.jpg);
   }
   84%, 97%
   {
-      background-image: url(images/large2.jpg);
+      background-image: url(../../images/large2.jpg);
   }
 }
 
