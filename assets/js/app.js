@@ -1,7 +1,3 @@
-function start() {
-  AOS.init();
-  new Splide( '.splide' ).mount();
-
 document.addEventListener('DOMContentLoaded', function () {
   var main = new Splide('#main-slider', {
       type: 'fade',
@@ -31,7 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
   thumbnails.mount();
 });
 
+let headerBackgrounds = document.querySelectorAll(".background");
+let imageIndex = 0;
+function changeBackground() {
+  headerBackgrounds[imageIndex].classList.remove("showing");
+  imageIndex++;
+  if (imageIndex >= headerBackgrounds.length) {
+    imageIndex = 0;
+  }
+  headerBackgrounds[imageIndex].classList.add("showing");
 }
+setInterval(changeBackground, 4000);
 
 function jump(h){
   var top = document.getElementById(h).offsetTop;
