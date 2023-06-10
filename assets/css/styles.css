@@ -132,11 +132,11 @@ p {
 }
 
 /* Footer CSS */
-.footer {
+footer {
   background-color: #131313;
 }
 
-.footer p {
+footer p {
   color: #ffffff;
 }
 
