@@ -264,7 +264,6 @@
 
 @supports (outline-offset: -3px) {
   .splide__slide:focus-visible {
-    outline: 3px solid #0bf;
     outline-offset: -3px;
   }
 }
