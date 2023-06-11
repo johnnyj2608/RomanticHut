@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         touch: 10,
       },
       breakpoints: {
-          600: {
+          768: {
               fixedWidth: 60,
               fixedHeight: 44,
           },
