@@ -4,8 +4,12 @@
     font-family: 'Kumbh Sans', sans-serif;
 }
 
+.arrow {
+  align-items: end !important;
+}
+
 html {
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 
 p {
@@ -76,21 +80,6 @@ h1 {
   transition: all 0.3s ease;
 }
 
-.hero h1 {
-  filter: drop-shadow(2px 2px #000000) 
-  drop-shadow(-2px -2px #000000)
-  drop-shadow(-2px 2px #000000)
-  drop-shadow(2px -2px #000000);
-  background-color: #ff8177; 
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  font-size: 4rem;
-}
-
 .fa-angles-down {
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
@@ -150,7 +139,7 @@ footer p {
 }
 
 .hero {
-  height: 100vh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,6 +154,26 @@ footer p {
   background-color: #000000;
   opacity: .4;
   z-index: -1;
+}
+
+.hero h1 {
+  filter: drop-shadow(2px 2px #000000) 
+  drop-shadow(-2px -2px #000000)
+  drop-shadow(-2px 2px #000000)
+  drop-shadow(2px -2px #000000);
+  background-color: #ff8177; 
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 4rem;
+}
+
+.hero a {
+  position: absolute;
+  top: 50vh;
 }
 
 .backgrounds-container {
