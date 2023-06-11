@@ -92,23 +92,6 @@ p {
   -moz-text-fill-color: transparent;
 }
 
-.arrow a {
-  background-color: #ff8177; 
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  cursor: pointer;
-  font-size: 40px;
-}
-
-.arrow a:hover {
-  background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
-  transition: all 0.3s ease;
-}
-
 #included p {
   display: inline-block; 
   text-align: left
