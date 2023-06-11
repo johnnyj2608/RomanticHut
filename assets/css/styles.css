@@ -37,7 +37,6 @@ p {
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
   background-size: 100%;
-  font-size: 8vw;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -73,12 +72,12 @@ p {
   transition: all 0.3s ease;
 }
 
-.nav-link:hover {
+.nav-link:hover, .hero a:hover {
   background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
   transition: all 0.3s ease;
 }
 
-.main h1 {
+.hero h1 {
   filter: drop-shadow(2px 2px #000000) 
   drop-shadow(-2px -2px #000000)
   drop-shadow(-2px 2px #000000)
@@ -90,6 +89,19 @@ p {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+  font-size: 4rem;
+}
+
+.hero a {
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 #included p {
@@ -146,14 +158,6 @@ footer p {
   align-items: center;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .hero:before {
   content: "";
   position: absolute;
@@ -184,4 +188,27 @@ footer p {
   opacity: 1;
   z-index: -1;
   transition: none;
+}
+
+.bounce {
+  animation: bounce 3s infinite;
+  animation-delay: 4s;
+}
+
+@keyframes bounce {
+  0%, 10%, 40%, 70%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem !important;
+  }
 }
