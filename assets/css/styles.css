@@ -103,11 +103,14 @@ h1 {
 }
 
 footer {
+  margin-top: 25px;
   background-color: #131313;
+  color: #ffffff;
 }
 
-footer p {
-  color: #ffffff;
+footer .container {
+  display: flex;
+  height: 10svh;
 }
 
 #main-slider .splide__slide{
@@ -173,7 +176,7 @@ footer p {
 
 .hero a {
   position: absolute;
-  top: 50vh;
+  top: 50svh;
 }
 
 .backgrounds-container {
