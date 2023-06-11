@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
       type: 'fade',
       rewind: true,
       pagination: false,
-      arrows: false,
   });
 
   var thumbnails = new Splide('#thumbnail-slider', {
