@@ -160,7 +160,6 @@
 
 @supports (outline-offset: -3px) {
   .splide__slide:focus-visible {
-    outline: 3px solid #ff8177;
     outline-offset: -3px;
   }
 }
@@ -173,7 +172,6 @@
 
 @supports (outline-offset: -3px) {
   .splide.is-focus-in .splide__slide:focus {
-    outline: 3px solid #ff8177;
     outline-offset: -3px;
   }
 }

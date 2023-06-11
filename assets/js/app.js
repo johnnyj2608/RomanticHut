@@ -10,10 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
       fixedWidth: 160,
       fixedHeight: 80,
       gap: 10,
+      perMove     : 1,
+      perPage     : 1,
       rewind: true,
       pagination: false,
       cover: true,
       isNavigation: true,
+      keyboard    : true,
+      focus: 'center',
+      dragMinThreshold: {
+        mouse: 4,
+        touch: 10,
+      },
       breakpoints: {
           600: {
               fixedWidth: 60,
@@ -25,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
   main.sync(thumbnails);
   main.mount();
   thumbnails.mount();
-});
+}); 
 
 let headerBackgrounds = document.querySelectorAll(".background");
 let imageIndex = 0;

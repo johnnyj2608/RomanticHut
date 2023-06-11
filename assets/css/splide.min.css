@@ -277,7 +277,6 @@
 
 @supports (outline-offset: -3px) {
   .splide.is-focus-in .splide__slide:focus {
-    outline: 3px solid #0bf;
     outline-offset: -3px;
   }
 }
