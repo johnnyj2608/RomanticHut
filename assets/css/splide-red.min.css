@@ -90,7 +90,7 @@
 }
 
 .splide__arrow--prev {
-  left: -2em;
+  left: 1em;
 }
 
 .splide__arrow--prev svg {
@@ -98,7 +98,7 @@
 }
 
 .splide__arrow--next {
-  right: -2em;
+  right: 1em;
 }
 
 .splide.is-focus-in .splide__arrow:focus {
@@ -381,6 +381,6 @@
 }
 
 .splide {
-  padding: 0.5em;
+  padding: 0.5em 3em;
 }
 
