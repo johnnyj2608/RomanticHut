@@ -47,5 +47,5 @@ setInterval(changeBackground, 4000);
 
 function jump(h){
   var top = document.getElementById(h).offsetTop;
-  window.scrollTo(0, top);
+  window.scrollTo(0, top-55);
 }
