@@ -14,7 +14,7 @@ Open the repository with VS Code. Run the code.
 
 To recreate the "Check Availability" button, you will need `Twilio`, Google Forms', and 'Google Sheets'. 
 
-Visit twilio.com and create an account. "Get a Twilio phone number". To remove people replying to this number, remove it's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
+Visit www.twilio.com and create an account. "Get a Twilio phone number". To remove people replying to this number, remove it's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
 
 Create a Google Form with 3 questions:
 1. Phone
