@@ -1,12 +1,41 @@
 ## Project Name & Pitch
 
-Romantic Hut Party Hall Website
+Romantic Hut Party Hall Website (www.romantichutparty.com)
 
-A front-end website to promote the business, showcase services offered, and automate inquiries of availability via Google Form & Spreadsheet. Desktop and mobile compatible.
+A front-end website to promote the business, showcase services offered, and automate inquiries of availability. Desktop and mobile compatible.
 
-Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider.
+Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. Also used Twilio with Google Sheets & Google Forms
 
 ## Installation and Setup Instructions
+
+Clone down this repository. You will need `VS Code` installed globally on your machine.  
+
+Open the repository with VS Code. Run the code.
+
+To recreate the "Check Availability" button, you will need 'Twilio', 'Google Forms', and 'Google Sheets'. 
+
+Visit twilio.com and create an account. "Get a Twilio phone number". To remove people replying to this number, remove it's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
+
+Create a Google Form with 3 questions:
+1. Phone
+2. Date
+3. Checkbox for specific rooms
+
+### Example: <img width="726" alt="Screen Shot 2023-06-11 at 11 34 09 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6c05ecf1-3a7a-450f-a80f-2f1bdeea5dd9">
+
+Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
+
+### Manual:<img width="204" alt="Screen Shot 2023-06-11 at 11 38 33 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ffda6efb-f549-476d-a98e-531dc679dbc4">
+
+### Sorted:<img width="202" alt="Screen Shot 2023-06-11 at 11 37 34 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ca60fb24-9bbb-4907-9393-421eb56c2006">
+
+Created the sorted sheet with the following formula: '=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)'
+
+Open Google 'Apps Script' for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO, and EMAIL (phone number) with your own information.
+
+### Optional (Domain & Hosting)
+
+Visit the settings of your repository. Under "Code and automation", visit "Pages". Save source as main/master. Under "Custom domain", enter your own custom domain. For more information: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
 ## Reflection
 
