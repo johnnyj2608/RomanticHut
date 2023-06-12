@@ -34,11 +34,11 @@ Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 
 Created the filtered sorted sheet with the following formula in the highlighted cell: 
 ```=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)```
 
-Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO (phone number), and EMAIL with your own information.
+Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO (phone number), and EMAIL with your information.
 
 ### Optional (Domain & Hosting)
 
-Visit the settings of your repository. Under "Code and automation", visit "Pages". Save source as main/master. Under "Custom domain", enter your own custom domain. For more information: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+Visit the settings of your repository. Under "Code and automation", visit "Pages". Save the source as main/master. Under "Custom domain", enter your custom domain. For more information: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
 ## Reflection
 
