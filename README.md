@@ -12,20 +12,24 @@ Clone down this repository. You will need `VS Code` installed globally on your m
 
 Open the repository with VS Code. Run the code.
 
-To recreate the "Check Availability" button, you will need `Twilio`, Google Forms', and 'Google Sheets'. 
+To recreate the "Check Availability" button, you will need `Twilio`, Google Forms, and Google Sheets. 
 
-Visit www.twilio.com and create an account. "Get a Twilio phone number". To remove people replying to this number, remove it's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
+Visit www.twilio.com and create an account. "Get a Twilio phone number". To avoid people replying, remove the number's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
 
 Create a Google Form with 3 questions:
-1. Phone
-2. Date
-3. Checkbox for specific rooms
+1. Phone number to receive from Twilio
+2. Date for availability inquiry
+3. Checkbox for which room(s)
 
-### Example: <img width="726" alt="Screen Shot 2023-06-11 at 11 34 09 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6c05ecf1-3a7a-450f-a80f-2f1bdeea5dd9">
+### Example: 
+<img width="726" alt="Screen Shot 2023-06-11 at 11 34 09 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6c05ecf1-3a7a-450f-a80f-2f1bdeea5dd9">
+
+Response validation for phone number on Google Forms; Regex: `^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$`
 
 Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
 
-### Manual (Former) & Sorted (Latter): <img width="270" alt="Screen Shot 2023-06-12 at 12 34 09 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/c5e550ff-f835-48dc-bf60-b2aec43ba4ad"><img width="270" alt="Screen Shot 2023-06-12 at 12 33 57 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6f97a644-c0fb-4359-86e5-a0925b7906ff">
+### Example:
+<img width="270" alt="Screen Shot 2023-06-12 at 12 38 41 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/9e9162cb-cbdd-4139-8287-85fcf494867a"> <img width="270" alt="Screen Shot 2023-06-12 at 12 38 26 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6f08f0d7-0b8b-425e-9a96-0725eaa97c84">
 
 Created the filtered sorted sheet with the following formula in the highlighted cell: 
 ```=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)```
