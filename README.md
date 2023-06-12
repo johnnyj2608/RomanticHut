@@ -10,7 +10,7 @@ Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons an
 
 Clone down this repository. You will need `VS Code` installed globally on your machine.  
 
-Open the repository with VS Code. Run the code.
+Open the repository with VS Code. Download the 'Go Live' extension to run the website in real time.
 
 To recreate the "Check Availability" button, you will need `Twilio`, Google Forms, and Google Sheets. 
 
