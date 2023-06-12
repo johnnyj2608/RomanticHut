@@ -25,11 +25,11 @@ Create a Google Form with 3 questions:
 
 Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
 
-   ### Manual:         |       Sorted:
-|:--------------------:|:--------------------:
-<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a"> | <img width="247" alt="Screen Shot 2023-06-12 at 12 00 43 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/9da158e5-dccd-4c06-a305-be58ae63426c">
+### Manual:                             Sorted:
+<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a"><img width="248" alt="Screen Shot 2023-06-12 at 12 16 49 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ce627867-78d6-42f5-9371-994feb398e86">
 
-Created the filtered sorted sheet with the following formula: '=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)'
+Created the filtered sorted sheet with the following formula in the highlighted cell: 
+```=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)```
 
 Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO, and EMAIL (phone number) with your own information.
 
