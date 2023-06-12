@@ -62,7 +62,7 @@ Technologies
 
 ### What's Included:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 11 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/57ab597f-5762-4f7e-8f75-09cb8efc36fd">
 
-### Reservation:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 20 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/94db1868-db29-4cf6-ab78-eae13319b5a6">
+### Reservations:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 20 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/94db1868-db29-4cf6-ab78-eae13319b5a6">
 
 ### Photo Gallery:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 47 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/21aab0d7-2e1a-4ae8-aaa9-2afbb86354d7">
 
