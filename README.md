@@ -12,7 +12,7 @@ Clone down this repository. You will need `VS Code` installed globally on your m
 
 Open the repository with VS Code. Run the code.
 
-To recreate the "Check Availability" button, you will need 'Twilio', 'Google Forms', and 'Google Sheets'. 
+To recreate the "Check Availability" button, you will need `Twilio`, Google Forms', and 'Google Sheets'. 
 
 Visit twilio.com and create an account. "Get a Twilio phone number". To remove people replying to this number, remove it's webhooks. To get your SID and AUTH, visit "Account" -> "Keys & Credentials" -> "API keys & tokens" -> "Live Credentials".
 
@@ -25,13 +25,15 @@ Create a Google Form with 3 questions:
 
 Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
 
-### Manual:<img width="204" alt="Screen Shot 2023-06-11 at 11 38 33 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ffda6efb-f549-476d-a98e-531dc679dbc4">
+### Manual:
+<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a">
 
-### Sorted:<img width="202" alt="Screen Shot 2023-06-11 at 11 37 34 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ca60fb24-9bbb-4907-9393-421eb56c2006">
+### Sorted:
+<img width="247" alt="Screen Shot 2023-06-12 at 12 00 43 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/9da158e5-dccd-4c06-a305-be58ae63426c">
 
 Created the sorted sheet with the following formula: '=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)'
 
-Open Google 'Apps Script' for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO, and EMAIL (phone number) with your own information.
+Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO, and EMAIL (phone number) with your own information.
 
 ### Optional (Domain & Hosting)
 
