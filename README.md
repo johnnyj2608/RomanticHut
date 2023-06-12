@@ -68,4 +68,5 @@ Technologies
 
 ### Footer:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 59 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/90659d68-5109-4fde-9f48-945c27c55eee">
 
-### Twilio Bot: ![IMG_2078](https://github.com/johnnyj2608/RomanticHut/assets/54607786/ce1a6286-b48c-420c-be59-1749bac0f6cf)
+### Twilio Bot: 
+![IMG_2078_50](https://github.com/johnnyj2608/RomanticHut/assets/54607786/0428d419-2dfd-46fe-845e-c895893b17b9)
