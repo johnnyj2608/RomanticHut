@@ -25,11 +25,8 @@ Create a Google Form with 3 questions:
 
 Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
 
-### Manual:
-<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a">
-
-### Sorted:
-<img width="247" alt="Screen Shot 2023-06-12 at 12 00 43 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/9da158e5-dccd-4c06-a305-be58ae63426c">
+### Manual: | ### Sorted:
+<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a"><img width="247" alt="Screen Shot 2023-06-12 at 12 00 43 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/9da158e5-dccd-4c06-a305-be58ae63426c">
 
 Created the sorted sheet with the following formula: '=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)'
 
@@ -40,6 +37,14 @@ Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScrip
 Visit the settings of your repository. Under "Code and automation", visit "Pages". Save source as main/master. Under "Custom domain", enter your own custom domain. For more information: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
 ## Reflection
+
+Purpose
+
+Journey
+
+Challenges
+
+Technologies
 
 ## Project Screen Shots (Desktop)
 
