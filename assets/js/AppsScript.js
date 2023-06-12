@@ -125,5 +125,5 @@ function sendSms(to, body) {
 }
 
 function email(message) {
-  MailApp.sendEmail('email@gmail.com', 'Romantic Hut Party Hall', message+' has attempted 10 requests');
+  MailApp.sendEmail('EMAIL@gmail.com', 'Romantic Hut Party Hall', message+' has attempted 10 requests');
 }
