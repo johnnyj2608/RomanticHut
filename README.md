@@ -31,7 +31,7 @@ Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 
 Created the filtered sorted sheet with the following formula in the highlighted cell: 
 ```=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)```
 
-Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO, and EMAIL (phone number) with your own information.
+Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScript.js file. In the sendSms function, replace SID, AUTH, TWILIO (phone number), and EMAIL with your own information.
 
 ### Optional (Domain & Hosting)
 
