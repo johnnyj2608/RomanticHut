@@ -25,8 +25,7 @@ Create a Google Form with 3 questions:
 
 Link this form to a Google Spreadsheet. Within the same spreadsheet, create new 2 sheets. One to manually add new reservations, and a second to sort them automatically
 
-### Manual:                             Sorted:
-<img width="248" alt="Screen Shot 2023-06-12 at 12 01 22 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/aa34c8af-fe6c-4795-86fb-713419be431a"><img width="248" alt="Screen Shot 2023-06-12 at 12 16 49 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/ce627867-78d6-42f5-9371-994feb398e86">
+### Manual (Former) & Sorted (Latter): <img width="270" alt="Screen Shot 2023-06-12 at 12 34 09 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/c5e550ff-f835-48dc-bf60-b2aec43ba4ad"><img width="270" alt="Screen Shot 2023-06-12 at 12 33 57 AM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/6f97a644-c0fb-4359-86e5-a0925b7906ff">
 
 Created the filtered sorted sheet with the following formula in the highlighted cell: 
 ```=SORT(FILTER(Manual!A3:B, Manual!A3:A>=TODAY()), 1, true)```
