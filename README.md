@@ -6,6 +6,7 @@ A front-end website to promote the business, showcase services offered, and auto
 
 Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. Also used Twilio with Google Sheets & Google Forms
 
+
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `VS Code` installed globally on your machine.  
@@ -40,15 +41,23 @@ Open Google `Apps Script` for your spreadsheet and paste the assets/js/AppsScrip
 
 Visit the settings of your repository. Under "Code and automation", visit "Pages". Save the source as main/master. Under "Custom domain", enter your custom domain. For more information: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
+
 ## Reflection
 
-Purpose
+I created this project in the winter of 2022. The goals included: learning web development, practicing using git, and reducing phone call inquiries of frequently asked questions (venues availability on X date)
 
-Journey
+I got started by following a YouTube tutorial video on web development. While that taught me the basics, it was time-consuming to create everything from scratch. After a quick search for a way to create a grid system for my content, I discovered the Bootstrap framework. I restarted my progress in favor of rebuilding with Bootstrap, making the building process more efficient and fun.
 
-Challenges
+One of the biggest challenges was the time required to load the content. My design was a single HTML with anchors and animations on scroll, so I couldn't rely on prefetching. I removed animations because loading the content was more important than presenting it fascinatingly. I also implemented lazy loading for my photo gallery.
 
-Technologies
+Another difficult challenge was making the website mobile responsive with viewport height. The website on my phone had extra white space compared to my mobile emulator. I then learned I could use the web inspector on my phone and discovered it was because of the toolbar that viewport height was not compatible. I eventually found the solution to use small viewport height units instead.
+
+I had concerns with Twilio as well. It allowed me to block incoming messages but couldn't block outgoing requests. I was concerned that one person would spam requests until my balance hit zero. My solution was to create a function that counted pairs of the same phone number and day from the Google form responses. I set it to where on the 10th request, they will receive a message stating they have reached their daily limit. Any further API requests will ignore that number until the next day.
+
+If I were to recreate this project, I would adopt a mobile-first design strategy. 
+
+I realized that scaling small content into a larger screen size is a smoother process than the reverse. I plan to make this a full-stack project by adding back-end components. Currently, I am using a spreadsheet to hold information. I will create text fields on the html page for the user to get an immediate response on availability without requiring Twilio to send a text message. I am interested in JavaScript frameworks that I wish to learn more about and implement into my project.
+
 
 ## Project Screen Shots (Desktop)
 
