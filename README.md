@@ -54,9 +54,7 @@ Another difficult challenge was making the website mobile responsive with viewpo
 
 I had concerns with Twilio as well. It allowed me to block incoming messages but couldn't block outgoing requests. I was concerned that one person would spam requests until my balance hit zero. My solution was to create a function that counted pairs of the same phone number and day from the Google form responses. I set it to where on the 10th request, they will receive a message stating they have reached their daily limit. Any further API requests will ignore that number until the next day.
 
-If I were to recreate this project, I would adopt a mobile-first design strategy. 
-
-I realized that scaling small content into a larger screen size is a smoother process than the reverse. I plan to make this a full-stack project by adding back-end components. Currently, I am using a spreadsheet to hold information. I will create text fields on the html page for the user to get an immediate response on availability without requiring Twilio to send a text message. I am interested in JavaScript frameworks that I wish to learn more about and implement into my project.
+If I were to recreate this project, I would adopt a mobile-first design strategy. I realized that scaling small content into a larger screen size is a smoother process than the reverse. I plan to make this a full-stack project by adding back-end components. Currently, I am using a spreadsheet to hold information. I will create text fields on the html page for the user to get an immediate response on availability without requiring Twilio to send a text message. I am interested in JavaScript frameworks that I wish to learn more about and implement into my project.
 
 
 ## Project Screen Shots (Desktop)
