@@ -61,7 +61,8 @@ If I were to recreate this project, I would adopt a mobile-first design strategy
 
 ### Hero Page:<img width="1440" alt="Screen Shot 2023-06-11 at 5 35 17 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/d0cac10b-45ed-49f4-bd92-76a5f7e4bd3f">
 
-### About Us:<img width="1440" alt="Screen Shot 2023-06-11 at 5 35 50 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/5262728a-bef9-48d8-9cad-11aec3d5a4ec">
+### About Us:<img width="1440" alt="Screen Shot 2023-06-15 at 2 42 44 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/062e7dac-3bed-4b46-9470-b0cf98bb1851">
+
 
 ### Hall Prices:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 02 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/faba5c6d-1427-4e21-ba66-874959b198dc">
 
