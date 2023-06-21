@@ -1,17 +1,17 @@
 ## Project Name & Pitch
 
-Romantic Hut Party Hall Website (www.romantichutparty.com)
+Romantic Hut Party Hall Website
 
 A front-end website to promote the business, showcase services offered, and automate inquiries of availability. Desktop and mobile compatible.
 
-Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. Also used Twilio with Google Sheets & Google Forms
+Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. I also used Twilio with Google Sheets & Google Forms
 
 
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `VS Code` installed globally on your machine.  
 
-Open the repository with VS Code. Download the 'Go Live' extension to run the website in real time.
+Open the repository with VS Code. Download the 'Go Live' extension to run the website in real-time.
 
 To recreate the "Check Availability" button, you will need `Twilio`, Google Forms, and Google Sheets. 
 
