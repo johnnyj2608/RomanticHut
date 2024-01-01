@@ -1,17 +1,17 @@
 ## Project Name & Pitch
 
-Romantic Hut Party Hall Website (www.romantichutparty.com)
+Romantic Hut Party Hall Website
 
 A front-end website to promote the business, showcase services offered, and automate inquiries of availability. Desktop and mobile compatible.
 
-Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. Also used Twilio with Google Sheets & Google Forms
+Built with HTML (Bootstrap), CSS, and Javascript. Utilized Font Awesome Icons and Splide Thumbnail Slider. I also used Twilio with Google Sheets & Google Forms
 
 
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `VS Code` installed globally on your machine.  
 
-Open the repository with VS Code. Download the 'Go Live' extension to run the website in real time.
+Open the repository with VS Code. Download the 'Go Live' extension to run the website in real-time.
 
 To recreate the "Check Availability" button, you will need `Twilio`, Google Forms, and Google Sheets. 
 
@@ -52,7 +52,7 @@ One of the biggest challenges was the time required to load the content. My desi
 
 I had concerns with Twilio as well. It allowed me to block incoming messages but couldn't block outgoing requests. I was concerned that one person would spam requests until my balance hit zero. My solution was to create a function that counted pairs of the same phone number and day from the Google form responses. I set it to where on the 10th request, they will receive a message stating they have reached their daily limit. Any further API requests will ignore that number until the next day.
 
-If I were to recreate this project, I would adopt a mobile-first design strategy. I realized that scaling small content into a larger screen size is a smoother process than the reverse. I plan to make this a full-stack project by adding back-end components. Currently, I am using a spreadsheet to hold information. I will create text fields on the html page for the user to get an immediate response on availability without requiring Twilio to send a text message. I am interested in JavaScript frameworks that I wish to learn more about and implement into my project.
+If I were to recreate this project, I would adopt a mobile-first design strategy. I realized that scaling small content into a larger screen size is a smoother process than the reverse. I plan to make this a full-stack project by adding back-end components. Currently, I am using a spreadsheet to hold information. I will create text fields on the html page for the user to get an immediate response on availability without requiring Twilio to send a text message. I am interested in JavaScript frameworks that I wish to learn more about and implement into my project. Adding a testimonials section also interests me.
 
 
 ## Project Screen Shots (Desktop)
@@ -61,8 +61,7 @@ If I were to recreate this project, I would adopt a mobile-first design strategy
 
 ### Hero Page:<img width="1440" alt="Screen Shot 2023-06-11 at 5 35 17 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/d0cac10b-45ed-49f4-bd92-76a5f7e4bd3f">
 
-### About Us:<img width="1440" alt="Screen Shot 2023-06-15 at 2 42 44 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/062e7dac-3bed-4b46-9470-b0cf98bb1851">
-
+### About Us:<img width="1440" alt="Screen Shot 2023-06-15 at 3 00 25 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/8098c8e1-a9b6-4268-9140-b998baff8171">
 
 ### Hall Prices:<img width="1440" alt="Screen Shot 2023-06-11 at 5 36 02 PM" src="https://github.com/johnnyj2608/RomanticHut/assets/54607786/faba5c6d-1427-4e21-ba66-874959b198dc">
 

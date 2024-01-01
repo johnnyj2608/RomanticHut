@@ -74,13 +74,13 @@ function limiter() {  // Same date from timestamp and phone number. Email if if 
 function avail(rooms, date) {
 
   var res = '';
-  var status = '';
+  var status = 'OPEN';
 
   // Create list of reserved dates
-  var public = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Public");
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Public");
   var startRow = 3;
-  var numRows = public.getRange("A1:A").getValues().filter(String).length;
-  var dataRange = public.getRange(startRow, 1, numRows, 2);
+  var numRows = ss.getRange("A1:A").getValues().filter(String).length;
+  var dataRange = ss.getRange(startRow, 1, numRows-2, 2);
   var data = dataRange.getValues();
 
   // If date and room pair matches, FULL. If proposed date passed, OPEN
@@ -93,10 +93,6 @@ function avail(rooms, date) {
         status = 'FULL';
         break;
       } 
-      if (new Date(date) < new Date(curDate)) {
-        status = 'OPEN';
-        break;
-      }
     }
     res += '\nRoom: '+rooms[i]+'\tStatus: '+status;
   }
